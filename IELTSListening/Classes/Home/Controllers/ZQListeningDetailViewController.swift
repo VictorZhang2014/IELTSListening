@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 import AVFoundation
+import MediaPlayer
 
 class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelegate {
     
@@ -55,16 +56,21 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventPause), name: NSNotification.Name.kUIEventSubtypeRemoteControlPause, object: nil)
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventPreviousTrack), name: NSNotification.Name.kUIEventSubtypeRemoteControlPreviousTrack, object: nil)
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventNextTrack), name: NSNotification.Name.kUIEventSubtypeRemoteControlNextTrack, object: nil)
-        
-        
+   
     }
-    
+
     // MARK: 应用从后台恢复到前台
     @objc func didBecomeActive() {
+        //结束后台处理多媒体事件
+        UIApplication.shared.endReceivingRemoteControlEvents()
+        
         if self.audioPlayerView?.audioPlayerStatus == .playing {
             if self.playingRecoveryFromBackground {
                 self.startAnimation()
             }
+            self.playingRecoveryFromBackground = false
+        } else if self.audioPlayerView?.audioPlayerStatus == .paused {
+            self.audioPlayerView?.pause()
             self.playingRecoveryFromBackground = false
         }
     }
@@ -77,17 +83,24 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         //开始后台处理多媒体事件
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
-        //设置可以在后台播放
-        let audioSession = AVAudioSession.sharedInstance();
-        guard let _ = try? audioSession.setActive(true) else {
-            print("setActive失败！")
-            return
+        DispatchQueue.global().async {
+            do {
+                //设置可以在后台播放
+                let audioSession = AVAudioSession.sharedInstance();
+                try audioSession.setActive(true)
+                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            } catch {
+                print("\(error)")
+                DispatchQueue.main.async {
+                    self.disposeAnimation()
+                    self.audioPlayerView?.pause()
+                }
+            }
+            
+            self.playingRecoveryFromBackground = true
+            
+            self.setNowPlayingInInfoCenter()
         }
-        guard let _ = try? audioSession.setCategory(AVAudioSessionCategoryPlayback) else {
-            print("setCategory失败！")
-            return
-        }
-        self.playingRecoveryFromBackground = true
     }
     
     // MARK: 后台音乐被打断，比如：电话，闹铃等
@@ -231,6 +244,10 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         startAnimation()
     }
     
+    func audioPlayerisPlayingWithProgress(player: AVAudioPlayer, progress: Double) {
+        updateNowPlayingInfoCenter(progress: progress)
+    }
+    
     func audioPlayerPaused(player: AVAudioPlayer) {
         disposeAnimation()
     }
@@ -256,6 +273,41 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
             audioFile += "IELTS11/" + listeningFileName! + ".mp3"
         }
         return audioFile
+    }
+    
+    // MARK: 锁屏时，在中间显示音频信息
+    func setNowPlayingInInfoCenter() {
+        let randNum = Int(arc4random()%7)+1
+        let mediaArtwork = MPMediaItemArtwork(image: UIImage(named: "zq_audioplayer_background_\(randNum)")!)
+        let totalDuration: Double = (self.audioPlayerView?.totolTimeDuration)!
+        
+        let songInfo: Dictionary<String, Any> = [
+            MPMediaItemPropertyTitle : "雅思听力 - \(listeningFileName!)",
+            MPMediaItemPropertyArtist : "剑桥大学出版社",
+            MPMediaItemPropertyPlaybackDuration : totalDuration,
+            MPMediaItemPropertyArtwork : mediaArtwork
+        ]
+        
+        //设置控制中心显示歌曲信息
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
+    }
+    
+    // MARK: 锁屏时，更新中间的音频信息，一般就是进度和歌词
+    func updateNowPlayingInfoCenter(progress: Double) {
+        let songInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo
+        if songInfo == nil {
+            return
+        }
+        var songDict: Dictionary<String, Any> = Dictionary<String, Any>()
+        for (k, v) in songInfo! {
+            songDict.updateValue(v, forKey: k)
+        }
+        songDict[MPNowPlayingInfoPropertyElapsedPlaybackTime] = progress
+        
+        //如果需要更新歌词，那么每次更新时，需要把字幕和背景图片合并，并赋值给该属性
+        //songDict[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: "")!)
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = songDict
     }
     
     deinit {

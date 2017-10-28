@@ -19,6 +19,7 @@ public enum ZQAudioPlayerStatus: Int {
 
 @objc public protocol ZQAudioPlayerViewDelegate : NSObjectProtocol {
     @objc optional func audioPlayerisPlaying(player: AVAudioPlayer)
+    @objc optional func audioPlayerisPlayingWithProgress(player: AVAudioPlayer, progress: Double)
     @objc optional func audioPlayerPaused(player: AVAudioPlayer)
     @objc optional func audioPlayerStopped(player: AVAudioPlayer)
 }
@@ -39,6 +40,9 @@ public class ZQAudioPlayerView: UIView, AVAudioPlayerDelegate {
     private var playButton: UIButton?
     private var currentLabel: UILabel?
     private var totalLabel: UILabel?
+    
+    //播放总时长
+    public var totolTimeDuration: Double = 0.0
     
     public override init(frame: CGRect) {
         let width: CGFloat = frame.size.width
@@ -223,6 +227,7 @@ public class ZQAudioPlayerView: UIView, AVAudioPlayerDelegate {
         }
         
         //该音频文件的分秒
+        self.totolTimeDuration = (audioPlayer?.duration)!
         totalLabel?.text = String(format: "%02d:%02d", ((Int)((audioPlayer?.duration)!)) / 60, ((Int)((audioPlayer?.duration)!)) % 60)
     }
     
@@ -281,7 +286,12 @@ public class ZQAudioPlayerView: UIView, AVAudioPlayerDelegate {
         self.slider?.setValue(curtime, animated: true)
         
         //当前播放的进度显示
+        let currentElapsedTime = (audioPlayer?.currentTime)!
         self.currentLabel?.text = String(format: "%02d:%02d", ((Int)((audioPlayer?.currentTime)!)) / 60, ((Int)((audioPlayer?.currentTime)!)) % 60)
+        
+        if self.audioPlayerDelegate != nil && (self.audioPlayerDelegate?.responds(to: #selector(audioPlayerDelegate?.audioPlayerisPlayingWithProgress(player:progress:))))! {
+            self.audioPlayerDelegate?.audioPlayerisPlayingWithProgress?(player: audioPlayer!, progress: currentElapsedTime)
+        }
     }
 
     // MARK: AVAudioPlayerDelegate
