@@ -1,0 +1,6 @@
+framework module Pods_IELTSListening {
+  umbrella header "Pods-IELTSListening-umbrella.h"
+
+  export *
+  module * { export * }
+}
