@@ -8,7 +8,19 @@
 
 import UIKit
 
-class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
+public enum ZQFileFormat: String {
+    case none = "none"
+    
+    case plist = "plist"
+    case rar = "rar"
+    case zip = "zip"
+    
+    case png = "png"
+    case jpg = "jpg"
+    case gif = "gif"
+}
+
+public class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
 
     private lazy var session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -20,10 +32,15 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
     private var progressClosure: ((Double) -> Swift.Void)?
     private var completionClosure: ((String?, String?, String?) -> Swift.Void)?
     
-    func download(index: Int, progress: ((Double) -> Swift.Void)? = nil, completion: ((String?, String?, String?) -> Swift.Void)?) {
+    private var isDownloadCommonFile: Bool = false //是否是下载普通文件
+    private var downloadFilename: String = ""
+    
+    // MARK: 下载雅思音频资源
+    public func download(index: Int, progress: ((Double) -> Swift.Void)? = nil, completion: ((String?, String?, String?) -> Swift.Void)?) {
         downloadIELTSIndex = index
         progressClosure = progress
         completionClosure = completion
+        isDownloadCommonFile = false
         
         var address = ""
         if downloadIELTSIndex == 12 {
@@ -41,8 +58,22 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
         dataTask.resume()
     }
     
+    // MARK: 下载普通文件
+    public func download(urlStr: String, filename: String, progress: ((Double) -> Swift.Void)? = nil, completion: ((String?, String?, String?) -> Swift.Void)?) {
+        progressClosure = progress
+        completionClosure = completion
+        isDownloadCommonFile = true
+        downloadFilename = filename
+        
+        let url = URL(string: urlStr)
+        let request = URLRequest(url: url!)
+        
+        let dataTask: URLSessionDownloadTask = session.downloadTask(with: request)
+        dataTask.resume()
+    }
+    
     // MARK: URLSessionDelegate
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
     {
         //获取进度
         let written:CGFloat = (CGFloat)(totalBytesWritten)
@@ -56,18 +87,26 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
         }
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL)
     {
         //输出下载文件原来的存放目录
         let locationPath = location.path
         
-        //压缩文件存放的目录 和 解压目录 是同一个
+        if isDownloadCommonFile {
+            handle_common_files(locationPath)
+        } else {
+            handle_IELTS_res(locationPath)
+        }
+    }
+
+    // MARK: 下载完雅思文件后处理函数
+    private func handle_IELTS_res(_ locationPath: String) {
         let docDir: String = NSHomeDirectory() + "/Documents/res/audio/"
-        var docDir_zip = docDir
         
         let fileManager = FileManager.default
-        try? fileManager.createDirectory(atPath: docDir_zip, withIntermediateDirectories: true, attributes: nil)
+        try? fileManager.createDirectory(atPath: docDir, withIntermediateDirectories: true, attributes: nil)
         
+        var docDir_zip = docDir
         if downloadIELTSIndex == 12 {
             docDir_zip += "IELTS12.zip"
         } else if downloadIELTSIndex == 11 {
@@ -76,6 +115,7 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
             completionClosure!("指定的下载文件不对！", nil, nil)
             return
         }
+        
         try! fileManager.copyItem(atPath: locationPath, toPath: docDir_zip)
         
         DispatchQueue.main.async {
@@ -83,8 +123,27 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
         }
     }
     
+    // MARK: 下载完普通文件后处理函数
+    private func handle_common_files(_ locationPath: String) {
+        let docDir: String = NSHomeDirectory() + "/Documents/data/"
+        
+        let fileManager = FileManager.default
+        try? fileManager.createDirectory(atPath: docDir, withIntermediateDirectories: true, attributes: nil)
+        
+        let docDir_data = docDir + String.getStrDate() + downloadFilename
+        try! fileManager.copyItem(atPath: locationPath, toPath: docDir_data)
+        
+        DispatchQueue.main.async {
+            if let completionHandler = self.completionClosure {
+                completionHandler(nil, docDir_data, docDir)
+            }
+        }
+    }
+    
+    
+    
     // MARK: 音频文件是否存在
-    static func hasAudioFiles(ieltsIndex: Int) -> Bool {
+    static public func hasAudioFiles(ieltsIndex: Int) -> Bool {
         var filename = ""
         if ieltsIndex == 12 {
             filename = "IELTS12/"
@@ -107,7 +166,7 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
     }
 
     // MARK: 更换解压完后的文件名目录，删除压缩文件
-    static func changeDirName(ieltsIndex: Int) {
+    static public func changeDirName(ieltsIndex: Int) {
         var filepath = NSHomeDirectory() + "/Documents/res/audio/"
         var targetPath = filepath
         var deleteFilePath = filepath
@@ -126,7 +185,7 @@ class ZQDownloadFiles: UIView, URLSessionDelegate, URLSessionDownloadDelegate {
         try? fileManager.removeItem(atPath: deleteFilePath)
     }
     
-    static func getResAudioPath() -> String {
+    static public func getResAudioPath() -> String {
         return NSHomeDirectory() + "/Documents/res/audio/"
     }
     

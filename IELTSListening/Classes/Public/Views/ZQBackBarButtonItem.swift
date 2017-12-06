@@ -10,6 +10,8 @@ import UIKit
 
 public class ZQBackBarButtonItem: UIButton {
 
+    private var title: UILabel?
+    
     init(target: Any?, action: Selector, for controlEvents: UIControlEvents) {
         let frame = CGRect(x: 0, y: 0, width: 60, height: 30)
         super.init(frame: frame)
@@ -20,17 +22,21 @@ public class ZQBackBarButtonItem: UIButton {
         
         let tW: CGFloat = 21
         let tY: CGFloat = (frame.size.height - tW) / 2 - 1
-        let title = UILabel(frame: CGRect(x: 12, y: tY, width: 38, height: tW))
-        title.text = "返回"
-        title.textColor = UIColor.white
-        title.font = UIFont.boldSystemFont(ofSize: 15)
-        self.addSubview(title)
+        title = UILabel(frame: CGRect(x: 12, y: tY, width: 38, height: tW))
+        title!.text = "返回"
+        title!.textColor = UIColor.white
+        title!.font = UIFont.boldSystemFont(ofSize: 15)
+        self.addSubview(title!)
         
         self.addTarget(target, action: action, for: controlEvents)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("ZQBackBarButtonItem init(coder:) has not been implemented")
+    }
+    
+    public func showBackText(isShow: Bool) {
+        title?.isHidden = !isShow
     }
     
 }

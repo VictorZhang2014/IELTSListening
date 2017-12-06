@@ -11,6 +11,7 @@ import UIKit
 class ZQLanguageSwitchViewController: ZQViewController {
 
     override func viewDidLoad() {
+        self.showCornerRadius = false
         super.viewDidLoad()
         setTitleLabel()
 

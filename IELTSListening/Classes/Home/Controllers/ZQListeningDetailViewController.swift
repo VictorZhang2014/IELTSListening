@@ -43,7 +43,7 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitleLabel()
-        blurBackgroundImgView(frame: self.view.frame)
+        blurBackgroundImgMultipleView()
         playDisc()
         layoutAudioPlayer()
  
@@ -56,7 +56,6 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventPause), name: NSNotification.Name.kUIEventSubtypeRemoteControlPause, object: nil)
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventPreviousTrack), name: NSNotification.Name.kUIEventSubtypeRemoteControlPreviousTrack, object: nil)
         notiCenter.addObserver(self, selector: #selector(didReceiveRemoteControlEventNextTrack), name: NSNotification.Name.kUIEventSubtypeRemoteControlNextTrack, object: nil)
-   
     }
 
     // MARK: 应用从后台恢复到前台
@@ -157,7 +156,8 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
     }
     
     //模糊背景
-    func blurBackgroundImgView(frame: CGRect) {
+    func blurBackgroundImgMultipleView() {
+        let frame = UIScreen.main.bounds
         let bgBlurImg = UIImageView(frame: frame)
         let randNum = Int(arc4random()%7)+1
         bgBlurImg.image = UIImage(named: "zq_audioplayer_background_\(randNum)")
@@ -168,16 +168,9 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         self.view.addSubview(blurView)
     }
     
-    func getRealViewFrame() -> CGRect {
-        let topMargin: CGFloat = 64
-        var vframe = self.view.frame
-        vframe.size.height -= topMargin
-        return vframe
-    }
-    
     // MARK: 播放盘
     func playDisc()  {
-        let vframe = getRealViewFrame()
+        let vframe = UIScreen.main.bounds
         
         //播放盘
         let discX: CGFloat = 50
@@ -257,7 +250,7 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
     }
 
     func layoutAudioPlayer() {
-        let vframe = self.getRealViewFrame()
+        let vframe = UIScreen.main.bounds
         self.audioPlayerView = ZQAudioPlayerView(frame: vframe)
         
         self.audioPlayerView?.audioPlayerDelegate = self
@@ -275,10 +268,33 @@ class ZQListeningDetailViewController: ZQViewController, ZQAudioPlayerViewDelega
         return audioFile
     }
     
+    // MARK: 生成锁屏时所需要的图片
+    func genTextInImage() -> UIImage {
+        let randNum = Int(arc4random()%7)+1
+        var image = UIImage(named: "zq_audioplayer_background_\(randNum)")!
+        var imgTextW: CGFloat = 0
+        let imgTextH: CGFloat = 50
+        let imgTextY: CGFloat = (image.size.height - imgTextH) / 2
+        var imgTextX: CGFloat = 0
+        let imgText: String = "暂无字幕"
+        let attributedText = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 40), NSAttributedStringKey.foregroundColor: UIColor.white]
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        let size = imgText.boundingRect(with: CGSize(width: image.size.width, height: imgTextH), options: option, attributes: attributedText, context: nil)
+        imgTextW = size.width + 5
+        imgTextX = (image.size.width - imgTextW) / 2
+        let imgTextRect: CGRect = CGRect(x: imgTextX, y: imgTextY, width: imgTextW, height: imgTextH)
+        
+        let newImage: UIImage? = image.combineTextInImage(text: imgText, textInRect: imgTextRect, withTextAttributes: attributedText)
+        if newImage != nil {
+            image = newImage!
+        }
+        return image
+    }
+    
     // MARK: 锁屏时，在中间显示音频信息
     func setNowPlayingInInfoCenter() {
-        let randNum = Int(arc4random()%7)+1
-        let mediaArtwork = MPMediaItemArtwork(image: UIImage(named: "zq_audioplayer_background_\(randNum)")!)
+        //中间显示的图片
+        let mediaArtwork = MPMediaItemArtwork(image: genTextInImage())
         let totalDuration: Double = (self.audioPlayerView?.totolTimeDuration)!
         
         let songInfo: Dictionary<String, Any> = [

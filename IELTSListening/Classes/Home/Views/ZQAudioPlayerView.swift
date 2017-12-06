@@ -52,18 +52,18 @@ public class ZQAudioPlayerView: UIView, AVAudioPlayerDelegate {
         let frame = CGRect(x: x_axis, y: y_axis, width: width, height: height)
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.white
+//        self.backgroundColor = UIColor.white
         
-        let bgView: UIImageView = UIImageView(image: UIImage(named: "ZQBlurBackgroundImage"))
-        bgView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-        self.addSubview(bgView)
+//        let bgView: UIImageView = UIImageView(image: UIImage(named: "ZQBlurBackgroundImage"))
+//        bgView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+//        self.addSubview(bgView)
 //        let blurEffect: UIBlurEffect = UIBlurEffect(style: .light)
 //        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
 //        blurView.frame = bgView.frame
 //        self.addSubview(blurView)
         
         let topLine = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 0.5))
-        topLine.backgroundColor = UIColor.black
+        topLine.backgroundColor = UIColor.lightGray
         self.addSubview(topLine)
         
         //已播放的长度

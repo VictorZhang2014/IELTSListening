@@ -9,11 +9,22 @@
 /* Begin PBXBuildFile section */
 		5700C8151F838E8A0089C0B8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5700C8141F838E8A0089C0B8 /* Reachability.swift */; };
 		5700C8171F83929C0089C0B8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5700C8161F83929C0089C0B8 /* libz.tbd */; };
+		570C17F51FAF3CDA0051EC5C /* ZQBufferSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570C17F41FAF3CDA0051EC5C /* ZQBufferSlider.swift */; };
+		57117ECB1FAF204E00F9A7F8 /* ZQPlayerCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57117ECA1FAF204E00F9A7F8 /* ZQPlayerCoverView.swift */; };
 		571A97E41F86375500264A01 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 573075A51F8332ED0076CD19 /* Info.plist */; };
 		571A97E61F86739B00264A01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571A97E51F86739600264A01 /* GoogleService-Info.plist */; };
+		5720B60D1FC0712700EFBD8B /* ZQDiscoverItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720B60C1FC0712600EFBD8B /* ZQDiscoverItemCollectionViewCell.swift */; };
+		5720B6111FC1C05900EFBD8B /* ZQLoadingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720B6101FC1C05900EFBD8B /* ZQLoadingBackgroundView.swift */; };
+		5720B6131FC1E02D00EFBD8B /* ZQLiveHostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720B6121FC1E02D00EFBD8B /* ZQLiveHostInfoView.swift */; };
+		5726E4AA1FB46A060023AF22 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726E4A91FB46A060023AF22 /* UIView.swift */; };
+		5726E4AC1FB53D8F0023AF22 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5726E4AB1FB53D8F0023AF22 /* libresolv.tbd */; };
+		5726E4AF1FB565880023AF22 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5726E4AE1FB565880023AF22 /* String.swift */; };
+		5726E4B51FB5B2C20023AF22 /* englishWithLucy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5726E4B41FB5B2C20023AF22 /* englishWithLucy.plist */; };
 		5730759F1F8332ED0076CD19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5730759D1F8332ED0076CD19 /* Main.storyboard */; };
 		573075A11F8332ED0076CD19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 573075A01F8332ED0076CD19 /* Assets.xcassets */; };
 		573075A41F8332ED0076CD19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573075A21F8332ED0076CD19 /* LaunchScreen.storyboard */; };
+		573B6D9B1FC02781000409F9 /* ZQLiveDataDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B6D9A1FC02781000409F9 /* ZQLiveDataDownload.swift */; };
+		573B6D9E1FC03D63000409F9 /* ZQLiveMeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B6D9D1FC03D63000409F9 /* ZQLiveMeDataModel.swift */; };
 		573F70011F8507DB002750A3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F70001F8507DB002750A3 /* UIColor.swift */; };
 		57582B331F878B9100F6FCE2 /* ZQAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57582B321F878B9100F6FCE2 /* ZQAppDelegate.swift */; };
 		57582B341F878D8000F6FCE2 /* ZQListeningDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57582B1F1F878B3A00F6FCE2 /* ZQListeningDetailViewController.swift */; };
@@ -26,9 +37,15 @@
 		57582B4E1F878F6700F6FCE2 /* ZQPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57582B4A1F878F5E00F6FCE2 /* ZQPickerView.swift */; };
 		57582B4F1F878F6B00F6FCE2 /* ZQProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57582B4B1F878F5E00F6FCE2 /* ZQProgressIndicator.swift */; };
 		57582B501F878F6D00F6FCE2 /* ZQProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57582B4C1F878F5E00F6FCE2 /* ZQProgressView.swift */; };
+		575B8FED1FB5BD3100B22FF4 /* ZQHomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B8FEC1FB5BD3100B22FF4 /* ZQHomeListCollectionViewCell.swift */; };
+		575B8FEF1FB5BEE800B22FF4 /* ZQPlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B8FEE1FB5BEE800B22FF4 /* ZQPlistModel.swift */; };
 		575C04EB1F8797CC006D9616 /* ZQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575C04EA1F8797CC006D9616 /* ZQTabBarController.swift */; };
+		5781FB381FB0219200460FAB /* ZQYouTubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781FB371FB0219200460FAB /* ZQYouTubePlayerViewController.swift */; };
+		5781FB411FB0B9DC00460FAB /* ZQVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781FB401FB0B9DC00460FAB /* ZQVideoPlayerViewController.swift */; };
+		578A3E431FB70FB900B59ADD /* ZQWaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578A3E421FB70FB900B59ADD /* ZQWaterFallViewLayout.swift */; };
 		57912F681F8B98B400E3F3D1 /* ZQMyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57912F671F8B98B400E3F3D1 /* ZQMyDetailViewController.swift */; };
 		57912F6A1F8B991C00E3F3D1 /* ZQMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57912F691F8B991C00E3F3D1 /* ZQMyPostViewController.swift */; };
+		5792720F1FB8907A00E455F3 /* ZQExamVenuesQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792720E1FB8907A00E455F3 /* ZQExamVenuesQueryViewController.swift */; };
 		579450E61F8B99AA00131DB3 /* ZQLanguageSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579450E51F8B99AA00131DB3 /* ZQLanguageSwitchViewController.swift */; };
 		579450E81F8BA12300131DB3 /* ZQNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579450E71F8BA12300131DB3 /* ZQNewPostViewController.swift */; };
 		579642F71FA42B46000EA13E /* NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579642F61FA42B46000EA13E /* NSNotification.swift */; };
@@ -41,6 +58,7 @@
 		57C837D51F84A23A002ECA54 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C837D41F84A23A002ECA54 /* UIImage.swift */; };
 		57C8CF291F8E3A9500F99A2B /* ZQDiscoverItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C8CF281F8E3A9500F99A2B /* ZQDiscoverItemTableViewCell.swift */; };
 		57C8CF2B1F8E4D3F00F99A2B /* ZQDiscoverItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C8CF2A1F8E4D3F00F99A2B /* ZQDiscoverItemModel.swift */; };
+		57CE7F231FD57F270091EC61 /* ZQLiveVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE7F221FD57F270091EC61 /* ZQLiveVideoPlayerViewController.swift */; };
 		57D26DB51F83CE7500215D4C /* LaunchImage750@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57F28A1F1F8374F40077A29A /* LaunchImage750@2x.png */; };
 		57D26DBC1F83D07900215D4C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D26DBB1F83D07600215D4C /* Icon@2x.png */; };
 		57D26DBD1F83D07C00215D4C /* Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D26DBA1F83D07600215D4C /* Icon@3x.png */; };
@@ -53,12 +71,24 @@
 		1E33F733365ED6B1976D901A /* Pods-IELTSListening.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IELTSListening.release.xcconfig"; path = "Pods/Target Support Files/Pods-IELTSListening/Pods-IELTSListening.release.xcconfig"; sourceTree = "<group>"; };
 		5700C8141F838E8A0089C0B8 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5700C8161F83929C0089C0B8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		570C17F41FAF3CDA0051EC5C /* ZQBufferSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQBufferSlider.swift; sourceTree = "<group>"; };
+		57117ECA1FAF204E00F9A7F8 /* ZQPlayerCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQPlayerCoverView.swift; sourceTree = "<group>"; };
 		571A97E51F86739600264A01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5720B60C1FC0712600EFBD8B /* ZQDiscoverItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQDiscoverItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		5720B6101FC1C05900EFBD8B /* ZQLoadingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLoadingBackgroundView.swift; sourceTree = "<group>"; };
+		5720B6121FC1E02D00EFBD8B /* ZQLiveHostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLiveHostInfoView.swift; sourceTree = "<group>"; };
+		5726E4A91FB46A060023AF22 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5726E4AB1FB53D8F0023AF22 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		5726E4AD1FB53D970023AF22 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5726E4AE1FB565880023AF22 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5726E4B41FB5B2C20023AF22 /* englishWithLucy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = englishWithLucy.plist; sourceTree = "<group>"; };
 		573075961F8332ED0076CD19 /* IELTSListening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IELTSListening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5730759E1F8332ED0076CD19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		573075A01F8332ED0076CD19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		573075A31F8332ED0076CD19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		573075A51F8332ED0076CD19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		573B6D9A1FC02781000409F9 /* ZQLiveDataDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLiveDataDownload.swift; sourceTree = "<group>"; };
+		573B6D9D1FC03D63000409F9 /* ZQLiveMeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLiveMeDataModel.swift; sourceTree = "<group>"; };
 		573F70001F8507DB002750A3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		57582B1A1F878B3A00F6FCE2 /* ZQAudioSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQAudioSettingViewController.swift; sourceTree = "<group>"; };
 		57582B1B1F878B3A00F6FCE2 /* ZQTextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQTextFieldViewController.swift; sourceTree = "<group>"; };
@@ -71,9 +101,16 @@
 		57582B4A1F878F5E00F6FCE2 /* ZQPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQPickerView.swift; sourceTree = "<group>"; };
 		57582B4B1F878F5E00F6FCE2 /* ZQProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQProgressIndicator.swift; sourceTree = "<group>"; };
 		57582B4C1F878F5E00F6FCE2 /* ZQProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQProgressView.swift; sourceTree = "<group>"; };
+		575B8FEC1FB5BD3100B22FF4 /* ZQHomeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQHomeListCollectionViewCell.swift; sourceTree = "<group>"; };
+		575B8FEE1FB5BEE800B22FF4 /* ZQPlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQPlistModel.swift; sourceTree = "<group>"; };
 		575C04EA1F8797CC006D9616 /* ZQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQTabBarController.swift; sourceTree = "<group>"; };
+		5781FB371FB0219200460FAB /* ZQYouTubePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQYouTubePlayerViewController.swift; sourceTree = "<group>"; };
+		5781FB391FB0227C00460FAB /* IELTSListening-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IELTSListening-Bridging-Header.h"; sourceTree = "<group>"; };
+		5781FB401FB0B9DC00460FAB /* ZQVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZQVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		578A3E421FB70FB900B59ADD /* ZQWaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQWaterFallViewLayout.swift; sourceTree = "<group>"; };
 		57912F671F8B98B400E3F3D1 /* ZQMyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQMyDetailViewController.swift; sourceTree = "<group>"; };
 		57912F691F8B991C00E3F3D1 /* ZQMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQMyPostViewController.swift; sourceTree = "<group>"; };
+		5792720E1FB8907A00E455F3 /* ZQExamVenuesQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQExamVenuesQueryViewController.swift; sourceTree = "<group>"; };
 		579450E51F8B99AA00131DB3 /* ZQLanguageSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLanguageSwitchViewController.swift; sourceTree = "<group>"; };
 		579450E71F8BA12300131DB3 /* ZQNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQNewPostViewController.swift; sourceTree = "<group>"; };
 		579642F61FA42B46000EA13E /* NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotification.swift; sourceTree = "<group>"; };
@@ -86,6 +123,7 @@
 		57C837D41F84A23A002ECA54 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		57C8CF281F8E3A9500F99A2B /* ZQDiscoverItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQDiscoverItemTableViewCell.swift; sourceTree = "<group>"; };
 		57C8CF2A1F8E4D3F00F99A2B /* ZQDiscoverItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQDiscoverItemModel.swift; sourceTree = "<group>"; };
+		57CE7F221FD57F270091EC61 /* ZQLiveVideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQLiveVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		57D26DBA1F83D07600215D4C /* Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@3x.png"; sourceTree = "<group>"; };
 		57D26DBB1F83D07600215D4C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		57F28A1F1F8374F40077A29A /* LaunchImage750@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage750@2x.png"; sourceTree = "<group>"; };
@@ -100,12 +138,29 @@
 			files = (
 				5700C8171F83929C0089C0B8 /* libz.tbd in Frameworks */,
 				A519846ED665C56C9DA9D861 /* Pods_IELTSListening.framework in Frameworks */,
+				5726E4AC1FB53D8F0023AF22 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5726E4B01FB5B2320023AF22 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5726E4B11FB5B23F0023AF22 /* plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5726E4B11FB5B23F0023AF22 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				5726E4B41FB5B2C20023AF22 /* englishWithLucy.plist */,
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
 		5730758D1F8332EC0076CD19 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +182,7 @@
 		573075981F8332ED0076CD19 /* IELTSListening */ = {
 			isa = PBXGroup;
 			children = (
+				5726E4B01FB5B2320023AF22 /* Resources */,
 				57B4670E1F83434D00A14337 /* Classes */,
 				5730759D1F8332ED0076CD19 /* Main.storyboard */,
 				573075A01F8332ED0076CD19 /* Assets.xcassets */,
@@ -138,6 +194,14 @@
 				571A97E51F86739600264A01 /* GoogleService-Info.plist */,
 			);
 			path = IELTSListening;
+			sourceTree = "<group>";
+		};
+		573B6D9C1FC03D4B000409F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				573B6D9D1FC03D63000409F9 /* ZQLiveMeDataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		57582B171F878B3A00F6FCE2 /* Home */ = {
@@ -156,6 +220,7 @@
 				57582B191F878B3A00F6FCE2 /* audio */,
 				57582B1F1F878B3A00F6FCE2 /* ZQListeningDetailViewController.swift */,
 				57582B211F878B3A00F6FCE2 /* ZQPracticeTestListeningListViewController.swift */,
+				5792720E1FB8907A00E455F3 /* ZQExamVenuesQueryViewController.swift */,
 				57582B221F878B3A00F6FCE2 /* ZQHomeListViewController.swift */,
 			);
 			path = Controllers;
@@ -173,6 +238,7 @@
 		57582B231F878B3A00F6FCE2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				575B8FEE1FB5BEE800B22FF4 /* ZQPlistModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				57582B251F878B3A00F6FCE2 /* ZQAudioPlayerView.swift */,
+				575B8FEC1FB5BD3100B22FF4 /* ZQHomeListCollectionViewCell.swift */,
+				578A3E421FB70FB900B59ADD /* ZQWaterFallViewLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				57C8CF281F8E3A9500F99A2B /* ZQDiscoverItemTableViewCell.swift */,
+				57117ECA1FAF204E00F9A7F8 /* ZQPlayerCoverView.swift */,
+				5720B60C1FC0712600EFBD8B /* ZQDiscoverItemCollectionViewCell.swift */,
+				5720B6121FC1E02D00EFBD8B /* ZQLiveHostInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,8 +330,10 @@
 		57582B471F878F5E00F6FCE2 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				573B6D9C1FC03D4B000409F9 /* Models */,
 				57A7E67B1F8795D100FB7E5A /* Controllers */,
 				57582B481F878F5E00F6FCE2 /* Views */,
+				5781FB391FB0227C00460FAB /* IELTSListening-Bridging-Header.h */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -272,6 +345,7 @@
 				57582B4A1F878F5E00F6FCE2 /* ZQPickerView.swift */,
 				57582B4B1F878F5E00F6FCE2 /* ZQProgressIndicator.swift */,
 				57582B4C1F878F5E00F6FCE2 /* ZQProgressView.swift */,
+				570C17F41FAF3CDA0051EC5C /* ZQBufferSlider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +355,9 @@
 			children = (
 				57A7E67E1F87962C00FB7E5A /* ZQNavigationController.swift */,
 				57A7E67C1F8795DC00FB7E5A /* ZQViewController.swift */,
+				57CE7F221FD57F270091EC61 /* ZQLiveVideoPlayerViewController.swift */,
+				5781FB401FB0B9DC00460FAB /* ZQVideoPlayerViewController.swift */,
+				5781FB371FB0219200460FAB /* ZQYouTubePlayerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +383,8 @@
 				5700C8141F838E8A0089C0B8 /* Reachability.swift */,
 				57F28A201F837A1E0077A29A /* ZQDownloadFiles.swift */,
 				57C837D11F848F1E002ECA54 /* ZQCommonUtility.swift */,
+				573B6D9A1FC02781000409F9 /* ZQLiveDataDownload.swift */,
+				5720B6101FC1C05900EFBD8B /* ZQLoadingBackgroundView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -316,6 +395,8 @@
 				57C837D41F84A23A002ECA54 /* UIImage.swift */,
 				573F70001F8507DB002750A3 /* UIColor.swift */,
 				579642F61FA42B46000EA13E /* NSNotification.swift */,
+				5726E4A91FB46A060023AF22 /* UIView.swift */,
+				5726E4AE1FB565880023AF22 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -332,6 +413,8 @@
 		CDDA5ADFDF664A471689592B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5726E4AD1FB53D970023AF22 /* SystemConfiguration.framework */,
+				5726E4AB1FB53D8F0023AF22 /* libresolv.tbd */,
 				5700C8161F83929C0089C0B8 /* libz.tbd */,
 				F6334E07A9729937AD3FED2E /* Pods_IELTSListening.framework */,
 			);
@@ -375,6 +458,7 @@
 				TargetAttributes = {
 					573075951F8332ED0076CD19 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -410,6 +494,7 @@
 				573075A41F8332ED0076CD19 /* LaunchScreen.storyboard in Resources */,
 				571A97E61F86739B00264A01 /* GoogleService-Info.plist in Resources */,
 				57D26DB51F83CE7500215D4C /* LaunchImage750@2x.png in Resources */,
+				5726E4B51FB5B2C20023AF22 /* englishWithLucy.plist in Resources */,
 				573075A11F8332ED0076CD19 /* Assets.xcassets in Resources */,
 				5730759F1F8332ED0076CD19 /* Main.storyboard in Resources */,
 				57D26DBD1F83D07C00215D4C /* Icon@3x.png in Resources */,
@@ -428,15 +513,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-IELTSListening/Pods-IELTSListening-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -498,13 +589,20 @@
 			files = (
 				57582B4D1F878F6400F6FCE2 /* ZQBackBarButtonItem.swift in Sources */,
 				57582B3C1F878DA800F6FCE2 /* ZQAudioPlayerView.swift in Sources */,
+				5781FB411FB0B9DC00460FAB /* ZQVideoPlayerViewController.swift in Sources */,
 				57A7E6581F87928000FB7E5A /* ZQSettingsViewController.swift in Sources */,
+				575B8FED1FB5BD3100B22FF4 /* ZQHomeListCollectionViewCell.swift in Sources */,
+				5726E4AF1FB565880023AF22 /* String.swift in Sources */,
 				57A7E65C1F87937C00FB7E5A /* ZQAboutAppViewController.swift in Sources */,
 				57582B341F878D8000F6FCE2 /* ZQListeningDetailViewController.swift in Sources */,
+				573B6D9B1FC02781000409F9 /* ZQLiveDataDownload.swift in Sources */,
 				57912F6A1F8B991C00E3F3D1 /* ZQMyPostViewController.swift in Sources */,
 				57582B361F878D8600F6FCE2 /* ZQPracticeTestListeningListViewController.swift in Sources */,
+				578A3E431FB70FB900B59ADD /* ZQWaterFallViewLayout.swift in Sources */,
 				579450E61F8B99AA00131DB3 /* ZQLanguageSwitchViewController.swift in Sources */,
+				5720B6111FC1C05900EFBD8B /* ZQLoadingBackgroundView.swift in Sources */,
 				579450E81F8BA12300131DB3 /* ZQNewPostViewController.swift in Sources */,
+				573B6D9E1FC03D63000409F9 /* ZQLiveMeDataModel.swift in Sources */,
 				57A7E6561F87925E00FB7E5A /* ZQDiscoverViewController.swift in Sources */,
 				57C8CF2B1F8E4D3F00F99A2B /* ZQDiscoverItemModel.swift in Sources */,
 				57582B4E1F878F6700F6FCE2 /* ZQPickerView.swift in Sources */,
@@ -512,17 +610,26 @@
 				57582B501F878F6D00F6FCE2 /* ZQProgressView.swift in Sources */,
 				57A7E67D1F8795DC00FB7E5A /* ZQViewController.swift in Sources */,
 				57582B331F878B9100F6FCE2 /* ZQAppDelegate.swift in Sources */,
+				57117ECB1FAF204E00F9A7F8 /* ZQPlayerCoverView.swift in Sources */,
+				575B8FEF1FB5BEE800B22FF4 /* ZQPlistModel.swift in Sources */,
 				579642F71FA42B46000EA13E /* NSNotification.swift in Sources */,
 				57C837D21F848F1E002ECA54 /* ZQCommonUtility.swift in Sources */,
+				5720B6131FC1E02D00EFBD8B /* ZQLiveHostInfoView.swift in Sources */,
 				573F70011F8507DB002750A3 /* UIColor.swift in Sources */,
 				57582B3B1F878D9B00F6FCE2 /* ZQTextFieldViewController.swift in Sources */,
+				57CE7F231FD57F270091EC61 /* ZQLiveVideoPlayerViewController.swift in Sources */,
 				57582B3A1F878D9800F6FCE2 /* ZQAudioSettingViewController.swift in Sources */,
+				570C17F51FAF3CDA0051EC5C /* ZQBufferSlider.swift in Sources */,
 				57582B371F878D8900F6FCE2 /* ZQHomeListViewController.swift in Sources */,
 				57C837D51F84A23A002ECA54 /* UIImage.swift in Sources */,
 				57C8CF291F8E3A9500F99A2B /* ZQDiscoverItemTableViewCell.swift in Sources */,
 				5700C8151F838E8A0089C0B8 /* Reachability.swift in Sources */,
+				5781FB381FB0219200460FAB /* ZQYouTubePlayerViewController.swift in Sources */,
 				57A7E67F1F87962C00FB7E5A /* ZQNavigationController.swift in Sources */,
+				5792720F1FB8907A00E455F3 /* ZQExamVenuesQueryViewController.swift in Sources */,
+				5726E4AA1FB46A060023AF22 /* UIView.swift in Sources */,
 				57912F681F8B98B400E3F3D1 /* ZQMyDetailViewController.swift in Sources */,
+				5720B60D1FC0712700EFBD8B /* ZQDiscoverItemCollectionViewCell.swift in Sources */,
 				57582B4F1F878F6B00F6FCE2 /* ZQProgressIndicator.swift in Sources */,
 				57F28A211F837A1E0077A29A /* ZQDownloadFiles.swift in Sources */,
 			);
@@ -662,6 +769,7 @@
 			baseConfigurationReference = 0DE13FF5689518FA3318FD99 /* Pods-IELTSListening.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B873AZ7BS6;
@@ -672,6 +780,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IELTSListening/Classes/Public/IELTSListening-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -682,6 +792,7 @@
 			baseConfigurationReference = 1E33F733365ED6B1976D901A /* Pods-IELTSListening.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B873AZ7BS6;
@@ -692,6 +803,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IELTSListening/Classes/Public/IELTSListening-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

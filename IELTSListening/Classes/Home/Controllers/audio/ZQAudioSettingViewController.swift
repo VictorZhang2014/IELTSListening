@@ -22,8 +22,9 @@ class ZQAudioSettingViewController: ZQViewController, UITableViewDelegate, UITab
     private var backwardSeconds: Int = 0
     
     override func viewDidLoad() {
+        self.showCornerRadius = false
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.defaultLightGray
+        
         setTitleLabel()
         loadDataList()
         setTableView()
@@ -46,10 +47,13 @@ class ZQAudioSettingViewController: ZQViewController, UITableViewDelegate, UITab
     }
     
     func setTableView() {
-        tableView = UITableView(frame: self.view.frame, style: .grouped)
+        var frame = self.viewframe
+        frame.origin.x = 0
+        frame.origin.y = 0
+        tableView = UITableView(frame: frame, style: .grouped)
         tableView!.dataSource = self
         tableView!.delegate = self
-        self.view.addSubview(tableView!)
+        self.backgroundView!.addSubview(tableView!)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,7 +116,7 @@ class ZQAudioSettingViewController: ZQViewController, UITableViewDelegate, UITab
             self.tableView!.reloadData()
             self.pickerView?.isHidden = true
         }
-        self.view.addSubview(pickerView!)
+        self.backgroundView!.addSubview(pickerView!)
         
     }
     

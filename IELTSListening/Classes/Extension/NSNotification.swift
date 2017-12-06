@@ -9,6 +9,12 @@
 import Foundation
 
 extension NSNotification.Name {
+    
+    // MARK: 直播，切换国家的通知
+    public static var kUIEventLiveInCountrySwitchover: NSNotification.Name {
+        return NSNotification.Name("kUIEventLiveInCountrySwitchover")
+    }
+    
  
     // MARK: 远程控制事件相关
     

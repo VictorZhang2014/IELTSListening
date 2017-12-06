@@ -37,7 +37,7 @@ class ZQSettingsViewController: ZQViewController, UITableViewDelegate, UITableVi
         dataList = [
                     ["我的头像"],
                     
-                    ["我的动态",
+                    [ /*"我的动态",*/
                       "语言切换",
                       "清除缓存"],
                      
@@ -45,18 +45,18 @@ class ZQSettingsViewController: ZQViewController, UITableViewDelegate, UITableVi
                      "分享雅思精听",
                      "为应用点赞"],
                      
-                     ["关于雅思精听"]
+                     ["关于 - 嗨！世界"]
                     ]
     }
     
     func setTableView() {
-        var vframe = self.view.frame
-        vframe.size.height -= 64
-        tableView = UITableView(frame: vframe, style: .grouped)
+        let superframe = self.viewframe
+        tableView = UITableView(frame: superframe, style: .grouped)
         tableView!.delegate = self
         tableView!.dataSource = self
+        tableView!.layer.cornerRadius = 7
         tableView!.backgroundColor = UIColor.clear
-        self.view.addSubview(tableView!)
+        self.addSubview(tableView!)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,7 +81,7 @@ class ZQSettingsViewController: ZQViewController, UITableViewDelegate, UITableVi
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
             cell.imageView?.image = UIImage(named: "ic_default_general")
             cell.textLabel?.text = "点击登录"
-            cell.detailTextLabel?.text = "没的说"
+            cell.detailTextLabel?.text = ""
         } else {
             let subArr = self.dataList![indexPath.section]
             cell.textLabel?.text = subArr[indexPath.row]
@@ -93,23 +93,27 @@ class ZQSettingsViewController: ZQViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let arr1 = self.dataList![indexPath.section]
+        let rowTitle = arr1[indexPath.row]
+        
         if indexPath.section == 0 {
             let myDetail = ZQMyDetailViewController()
             myDetail.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(myDetail, animated: true)
         } else if indexPath.section == 1 {
             
+//            if indexPath.row == 0 {
+//                let mypost = ZQMyPostViewController()
+//                mypost.hidesBottomBarWhenPushed = true
+//                self.navigationController?.pushViewController(mypost, animated: true)
+//
+//            } else
             if indexPath.row == 0 {
-                let mypost = ZQMyPostViewController()
-                mypost.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(mypost, animated: true)
-                
-            } else if indexPath.row == 1 {
                 let languageSwitch = ZQLanguageSwitchViewController()
                 languageSwitch.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(languageSwitch, animated: true)
                 
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 cleanCaches()
             }
         } else if indexPath.section == 2 {
@@ -124,6 +128,7 @@ class ZQSettingsViewController: ZQViewController, UITableViewDelegate, UITableVi
             
         } else if indexPath.section == 3 {
             let aboutVC = ZQAboutAppViewController()
+            aboutVC.titleStr = rowTitle
             aboutVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(aboutVC, animated: true)
         }

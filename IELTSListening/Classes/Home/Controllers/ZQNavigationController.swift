@@ -10,15 +10,23 @@ import UIKit
 
 class ZQNavigationController: UINavigationController {
     
+    //是否显示正常的导航栏
+    public var showNormalNavigationBar: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBarSettings()
+        
+        if showNormalNavigationBar {
+            navigationBarSettings()
+        }
     }
     
     // MARK: navigation bar
-    func navigationBarSettings() {
+    public func navigationBarSettings() {
         self.navigationBar.tintColor = UIColor.white
-        self.navigationBar.setBackgroundImage(UIImage(named: "ZQNavBarBlurBackgroundImage"), for: .default)
+        
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
     }
 
 }

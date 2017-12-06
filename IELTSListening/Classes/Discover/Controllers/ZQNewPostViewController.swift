@@ -9,13 +9,13 @@
 import UIKit
 
 class ZQNewPostViewController: ZQViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setTitleLabel()
+        
     }
-
+    
     func setTitleLabel() {
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         title.text = "新的发布"
@@ -24,5 +24,7 @@ class ZQNewPostViewController: ZQViewController {
         title.textColor = UIColor.white
         self.navigationItem.titleView = title
     }
-
+    
+    
+    
 }

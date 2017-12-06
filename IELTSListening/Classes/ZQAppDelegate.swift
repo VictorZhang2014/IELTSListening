@@ -4,10 +4,9 @@
 //
 //  Created by Victor Zhang on 03/10/2017.
 //  Copyright © 2017 Victor Studio. All rights reserved.
-//
+//  Hello, World
 
 import UIKit
-import Firebase
 import Fabric
 import Crashlytics
 
@@ -16,11 +15,8 @@ class ZQAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
-        FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
         return true

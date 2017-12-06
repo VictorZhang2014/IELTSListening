@@ -71,5 +71,38 @@ public class ZQCommonUtility: NSObject {
         let audioFilepath = ZQDownloadFiles.getResAudioPath()
         try? FileManager.default.removeItem(atPath: audioFilepath)
     }
+    
+    
+    // MARK: UseDefaults 存值和取值
+    static public func inUserDefaultsSet(value: Any?, forKey: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(value, forKey: forKey)
+        userDefaults.synchronize()
+    }
+    
+    static public func inUserDefaultsGetObject(forKey: String) -> Any? {
+        let userDefaults = UserDefaults.standard
+        return userDefaults.object(forKey: forKey)
+    }
 
+    // MARK: 将JSON字符串转字典
+    static public func getDictByConverting(jsonStr: String) -> Any? {
+        let data = jsonStr.data(using: .utf8)
+        return ZQCommonUtility.getDictByConverting(jsondata: data!)
+    }
+    
+    // MARK: 将JSON Data转字典
+    static public func getDictByConverting(jsondata: Data) -> Any? {
+        do {
+            let jsonObj = try JSONSerialization.jsonObject(with: jsondata, options: JSONSerialization.ReadingOptions.mutableContainers)
+            return jsonObj
+        } catch {
+            
+        }
+        return nil
+    }
 }
+
+
+
+

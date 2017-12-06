@@ -97,34 +97,21 @@ class ZQPracticeTestListeningListViewController: ZQViewController, UITableViewDa
     func checkAudioFilesExist() {
         hasDownloadedAudio = ZQDownloadFiles.hasAudioFiles(ieltsIndex: ieltsIndex)
     }
-    
-    //模糊背景
-    func blurBackgroundImgView(frame: CGRect) {
-        let bgBlurImg = UIImageView(frame: frame)
-        bgBlurImg.image = UIImage(named: "ielts12academicbookBlur")
-        self.view.addSubview(bgBlurImg)
-        let blurEffect: UIBlurEffect = UIBlurEffect(style: .light)
-        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = bgBlurImg.frame
-        self.view.addSubview(blurView)
-    }
 
     func setTableView() {
-        let topMargin: CGFloat = 64
-        var vframe = self.view.frame
-        vframe.size.height -= topMargin
-        
-        blurBackgroundImgView(frame: vframe)
-        
-        tableView = UITableView(frame: vframe, style: .grouped)
+        var viewRect = self.viewframe
+        viewRect.origin.x = 0
+        viewRect.origin.y = 0
+        tableView = UITableView(frame: viewRect, style: .grouped)
         tableView!.delegate = self
         tableView!.dataSource = self
         //浮点数比较版本号，效率高
 //        if NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_9_0 {
 //            tableView.contentInset = UIEdgeInsetsMake(64 , 0, 0, 0);
 //        }
-        tableView.backgroundColor = UIColor.clear
-        self.view.addSubview(tableView!)
+        tableView!.backgroundColor = UIColor.clear
+        tableView!.layer.cornerRadius = 6
+        self.addSubview(tableView!)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
